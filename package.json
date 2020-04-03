@@ -1,0 +1,34 @@
+{
+  "name": "character_combination",
+  "version": "1.0.0",
+  "description": "Hello",
+  "main": "index.js",
+  "dependencies": {
+    "next-redux-wrapper": "^5.0.0",
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-dom": "^16.13.1",
+    "redux": "^4.0.5",
+    "react-redux": "^7.2.0",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7"
+  },
+  "scripts": {
+    "dev": "next -p 3001",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taenykim/character_combination.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taenykim/character_combination/issues"
+  },
+  "homepage": "https://github.com/taenykim/character_combination#readme"
+}
