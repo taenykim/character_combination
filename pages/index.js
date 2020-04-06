@@ -1,14 +1,14 @@
 import React from 'react'
-import TopMenuBar from '../components/TopMenuBar'
-import TitleBanner from '../components/TitleBanner'
-import MiddleMenuBar from '../components/MiddleMenuBar'
+import Contents from '../components/Contents'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const index = () => {
   return (
     <>
-      <TopMenuBar />
-      <TitleBanner />
-      <MiddleMenuBar />
+      <Header />
+      <Contents />
+      <Footer />
     </>
   )
 }

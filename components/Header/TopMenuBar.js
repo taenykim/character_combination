@@ -5,17 +5,18 @@ const contents = ['Character', 'Kpop Artist']
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100vw;
   height: 40px;
-  background: purple;
+  background: #111;
 `
 
 const Contents = styled.div`
   display: flex;
-  padding: 0 180px 0 180px;
-
-  & > span {
+  justify-content: space-between;
+  width: calc(100vw - 360px);
+  & > div > span {
     color: white;
     font-size: 12px;
     font-family: escore5;
@@ -27,9 +28,14 @@ const TopMenuBar = () => {
   return (
     <Container>
       <Contents>
-        {contents.map((item) => {
-          return <span>{item}</span>
-        })}
+        <div>
+          {contents.map((item) => {
+            return <span>{item}</span>
+          })}
+        </div>
+        <div>
+          <span>번역</span>
+        </div>
       </Contents>
     </Container>
   )
