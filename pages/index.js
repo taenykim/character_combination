@@ -1,7 +1,16 @@
 import React from 'react'
+import TopMenuBar from '../components/TopMenuBar'
+import TitleBanner from '../components/TitleBanner'
+import MiddleMenuBar from '../components/MiddleMenuBar'
 
 const index = () => {
-  return <div>안녕</div>
+  return (
+    <>
+      <TopMenuBar />
+      <TitleBanner />
+      <MiddleMenuBar />
+    </>
+  )
 }
 
 export default index
