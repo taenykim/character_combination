@@ -29,8 +29,8 @@ const TopMenuBar = () => {
     <Container>
       <Contents>
         <div>
-          {contents.map((item) => {
-            return <span>{item}</span>
+          {contents.map((item, i) => {
+            return <span key={i}>{item}</span>
           })}
         </div>
         <div>

@@ -6,7 +6,7 @@ const Container = styled.div`
   width: 600px;
   height: 80px;
   background: yellow;
-  margin: 40px 0 40px 0;
+  margin: 0 0 20px 0;
 `
 
 const DndBox = () => {
