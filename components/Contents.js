@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import DndBox from './Contents/DndBox'
+import DndBox from './Contents/DndBox/DndBox'
 import Canvas from './Contents/Canvas'
-import CharacterTable from './Contents/CharacterTable'
+import CharacterTable from './Contents/CharacterTable/CharacterTable'
 import Character from './Contents/Character'
 
 const characters = [
