@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { ADD_CHARACTER } from '../../../reducers/wrapper'
 
 const Container = styled.div`
   position: relative;
@@ -44,8 +46,16 @@ const Container = styled.div`
 `
 
 const CharacterItem = ({ character }) => {
+  const dispatch = useDispatch()
+
+  const clickCharacter = () => {
+    dispatch({
+      type: ADD_CHARACTER,
+      character: character.name,
+    })
+  }
   return (
-    <Container group={character.group}>
+    <Container group={character.group} onClick={clickCharacter}>
       <div>🔍</div>
       <h1>{character.group}</h1>
       <p>{character.name}</p>

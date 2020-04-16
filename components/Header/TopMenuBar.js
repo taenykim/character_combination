@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const contents = ['Character', 'Kpop Artist']
+const contents = ['Character']
 
 const Container = styled.div`
   display: flex;

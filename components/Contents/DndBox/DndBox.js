@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { useSelector, useDispatch } from 'react-redux'
+import { UPDATE_CHARACTERS } from '../../../reducers/wrapper'
 
 const Container = styled.div`
   display: flex;
@@ -11,10 +13,8 @@ const Container = styled.div`
 `
 
 const DndBox = () => {
-  const [items, setItems] = useState([])
-  useEffect(() => {
-    setItems(getItems(6))
-  }, [])
+  const dispatch = useDispatch()
+  const items = useSelector((state) => state.wrapper.characters)
   const onDragEnd = (result) => {
     console.log(result)
     // dropped outside the list
@@ -23,15 +23,8 @@ const DndBox = () => {
     }
 
     const reorderItems = reorder(items, result.source.index, result.destination.index)
-
-    setItems(reorderItems)
+    dispatch({ type: UPDATE_CHARACTERS, characters: reorderItems })
   }
-
-  const getItems = (count) =>
-    Array.from({ length: count }, (v, k) => k).map((k) => ({
-      id: `item-${k}`,
-      content: `item ${k}`,
-    }))
 
   // a little function to help us with reordering the result
   const reorder = (list, startIndex, endIndex) => {
