@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useSelector, useDispatch } from 'react-redux'
@@ -24,6 +24,7 @@ const DndBox = () => {
 
     const reorderItems = reorder(items, result.source.index, result.destination.index)
     dispatch({ type: UPDATE_CHARACTERS, characters: reorderItems })
+    console.log(items)
   }
 
   // a little function to help us with reordering the result

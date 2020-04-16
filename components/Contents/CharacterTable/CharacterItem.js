@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
-import { ADD_CHARACTER } from '../../../reducers/wrapper'
+import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/wrapper'
 
 const Container = styled.div`
   position: relative;
@@ -11,9 +11,13 @@ const Container = styled.div`
     ${(props) => {
       if (props.group === 'Avengers') return 'red'
       if (props.group === 'Gardians') return 'dodgerblue'
+      if (props.group === 'Dr.strange') return 'orange'
+      if (props.group === 'Wakanda') return 'black'
     }};
   box-sizing: border-box;
-  background: yellow;
+  background: ${(props) => {
+    return props.clickedToggle === true ? 'lightgreen' : 'yellow'
+  }};
 
   & > div {
     position: absolute;
@@ -23,9 +27,14 @@ const Container = styled.div`
   }
 
   & > h1 {
+    color: ${(props) => {
+      if (props.group === 'Wakanda') return 'white'
+    }};
     background: ${(props) => {
       if (props.group === 'Avengers') return 'red'
       if (props.group === 'Gardians') return 'dodgerblue'
+      if (props.group === 'Dr.strange') return 'orange'
+      if (props.group === 'Wakanda') return 'black'
     }};
     padding: 0px 2px 2px 0px;
     position: absolute;
@@ -46,16 +55,23 @@ const Container = styled.div`
 `
 
 const CharacterItem = ({ character }) => {
+  const [clickedToggle, setClickedToggle] = useState(false)
   const dispatch = useDispatch()
 
   const clickCharacter = () => {
-    dispatch({
-      type: ADD_CHARACTER,
-      character: character.name,
-    })
+    setClickedToggle(!clickedToggle)
+    clickedToggle
+      ? dispatch({
+          type: DELETE_CHARACTER,
+          character: character.name,
+        })
+      : dispatch({
+          type: ADD_CHARACTER,
+          character: character.name,
+        })
   }
   return (
-    <Container group={character.group} onClick={clickCharacter}>
+    <Container clickedToggle={clickedToggle} group={character.group} onClick={clickCharacter}>
       <div>🔍</div>
       <h1>{character.group}</h1>
       <p>{character.name}</p>
