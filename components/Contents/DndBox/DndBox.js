@@ -1,18 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useSelector, useDispatch } from 'react-redux'
-import { UPDATE_CHARACTERS } from '../../../reducers/wrapper'
+import { UPDATE_CHARACTERS, ADD_CHARACTER } from '../../../reducers/wrapper'
+import CharacterItem from './CharacterItem'
 
 const Container = styled.div`
   display: flex;
-  width: 600px;
-  height: 80px;
-  background: yellow;
+  flex-direction: column;
   margin: 0 0 20px 0;
 `
 
+const SynergyBox = styled.div`
+  color: white;
+  width: 800px;
+  margin: 20px 0px 20px 0px;
+`
+
 const DndBox = () => {
+  useEffect(() => {
+    dispatch({
+      type: ADD_CHARACTER,
+      name: 'Captain',
+      group: 'Avengers',
+    })
+    dispatch({
+      type: ADD_CHARACTER,
+      name: 'Iron Man',
+      group: 'Avengers',
+    })
+    dispatch({
+      type: ADD_CHARACTER,
+      name: 'Spider Man',
+      group: 'Avengers',
+    })
+    dispatch({
+      type: ADD_CHARACTER,
+      name: 'Hulk',
+      group: 'Avengers',
+    })
+    dispatch({
+      type: ADD_CHARACTER,
+      name: 'Thor',
+      group: 'Avengers',
+    })
+  }, [])
   const dispatch = useDispatch()
   const items = useSelector((state) => state.wrapper.characters)
   const onDragEnd = (result) => {
@@ -36,26 +68,27 @@ const DndBox = () => {
     return result
   }
 
-  const grid = 8
+  // const getItemStyle = (isDragging, draggableStyle) => ({
+  //   // some basic styles to make the items look a bit nicer
+  //   userSelect: 'none',
+  //   padding: grid * 2,
+  //   margin: `0 ${grid}px 0 0`,
 
-  const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
-    userSelect: 'none',
-    padding: grid * 2,
-    margin: `0 ${grid}px 0 0`,
+  //   // change background colour if dragging
+  //   background: isDragging ? 'lightgreen' : 'grey',
 
-    // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
-
-    // styles we need to apply on draggables
-    ...draggableStyle,
-  })
+  //   // styles we need to apply on draggables
+  //   ...draggableStyle,
+  // })
 
   const getListStyle = (isDraggingOver) => ({
     background: isDraggingOver ? 'lightblue' : 'lightgrey',
     display: 'flex',
-    padding: grid,
-    overflow: 'auto',
+    height: '80px',
+    width: 'fit-content',
+    alignSelf: 'center',
+    // padding: grid,
+    // overflow: 'auto',
   })
 
   return (
@@ -75,9 +108,9 @@ const DndBox = () => {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
+                      // style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
                     >
-                      {item.content}
+                      <CharacterItem key={index} character={item}></CharacterItem>
                     </div>
                   )}
                 </Draggable>
@@ -87,6 +120,7 @@ const DndBox = () => {
           )}
         </Droppable>
       </DragDropContext>
+      <SynergyBox>시너지박스</SynergyBox>
     </Container>
   )
 }

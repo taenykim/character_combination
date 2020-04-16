@@ -6,11 +6,11 @@ import CharacterTable from './Contents/CharacterTable/CharacterTable'
 import Character from './Contents/Character'
 
 const characters = [
-  new Character('Avengers', 'Captain'),
-  new Character('Avengers', 'Iron Man'),
-  new Character('Avengers', 'Spider Man'),
-  new Character('Avengers', 'Hulk'),
-  new Character('Avengers', 'Thor'),
+  new Character('Avengers', 'Captain', true),
+  new Character('Avengers', 'Iron Man', true),
+  new Character('Avengers', 'Spider Man', true),
+  new Character('Avengers', 'Hulk', true),
+  new Character('Avengers', 'Thor', true),
   new Character('Gardians', 'Racoon'),
   new Character('Gardians', 'Groot'),
   new Character('Gardians', 'Star Lord'),

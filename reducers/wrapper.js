@@ -14,10 +14,11 @@ export default (state = initialState, action) => {
       }
     }
     case ADD_CHARACTER: {
+      console.log(action)
       return {
         characters: [
           ...state.characters,
-          { id: `item-${state.characters.length}`, content: action.character },
+          { id: `item-${state.characters.length}`, name: action.name, group: action.group },
         ],
       }
     }
@@ -26,7 +27,7 @@ export default (state = initialState, action) => {
       let index = 0
       let id = 0
       for (let i = 0; i < tempCharacters.length; i++) {
-        if (tempCharacters[i].content === action.character) {
+        if (tempCharacters[i].name === action.name) {
           index = i
           id = Number(tempCharacters[i].id.split('-')[1])
         }

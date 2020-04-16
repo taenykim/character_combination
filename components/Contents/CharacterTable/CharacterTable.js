@@ -11,13 +11,21 @@ const Container = styled.div`
   margin: 0 0 60px 0;
 `
 
+const ControlContainer = styled.div`
+  color: white;
+  margin: 20px;
+`
+
 const ChracterTable = ({ characters }) => {
   return (
-    <Container>
-      {characters.map((character, i) => {
-        return <CharacterItem key={i} character={character}></CharacterItem>
-      })}
-    </Container>
+    <>
+      <ControlContainer>컨트롤 박스</ControlContainer>
+      <Container>
+        {characters.map((character, i) => {
+          return <CharacterItem key={i} character={character}></CharacterItem>
+        })}
+      </Container>
+    </>
   )
 }
 

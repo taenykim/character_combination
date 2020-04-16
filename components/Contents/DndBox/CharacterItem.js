@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useDispatch } from 'react-redux'
-import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/wrapper'
 
 const Container = styled.div`
   position: relative;
@@ -55,24 +53,8 @@ const Container = styled.div`
 `
 
 const CharacterItem = ({ character }) => {
-  const [clickedToggle, setClickedToggle] = useState(character.selected)
-  const dispatch = useDispatch()
-
-  const clickCharacter = () => {
-    setClickedToggle(!clickedToggle)
-    clickedToggle
-      ? dispatch({
-          type: DELETE_CHARACTER,
-          name: character.name,
-        })
-      : dispatch({
-          type: ADD_CHARACTER,
-          name: character.name,
-          group: character.group,
-        })
-  }
   return (
-    <Container clickedToggle={clickedToggle} group={character.group} onClick={clickCharacter}>
+    <Container group={character.group}>
       <div>🔍</div>
       <h1>{character.group}</h1>
       <p>{character.name}</p>
