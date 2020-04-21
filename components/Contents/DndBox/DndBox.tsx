@@ -22,7 +22,7 @@ const SynergyBox = styled.div`
 `
 
 const DndBox = () => {
-  const language = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.wrapper.language)
   useEffect(() => {
     dispatch({
       type: ADD_CHARACTER,
@@ -101,7 +101,7 @@ const DndBox = () => {
               style={getListStyle(snapshot.isDraggingOver)}
               {...provided.droppableProps}
             >
-              {items.map((item, index) => (
+              {(items as Array<any[]>).map((item: any, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(provided, snapshot) => (
                     <div

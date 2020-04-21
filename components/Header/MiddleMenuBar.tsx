@@ -29,7 +29,7 @@ const Contents = styled.div`
 `
 
 const MiddleMenuBar = () => {
-  const language = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.wrapper.language)
   return (
     <Container>
       <Contents>

@@ -40,7 +40,7 @@ const LanguageElement = styled.span`
 `
 
 const TopMenuBar = () => {
-  const language = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.wrapper.language)
   const dispatch = useDispatch()
 
   const onClickLanguageButton = (language) => {
@@ -53,7 +53,7 @@ const TopMenuBar = () => {
     <Container>
       <Contents>
         <div>
-          {languages[language].contents.map((item, i) => {
+          {languages[language].contents.map((item: string, i: number) => {
             return <span key={i}>{item}</span>
           })}
         </div>

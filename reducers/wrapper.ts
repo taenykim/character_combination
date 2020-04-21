@@ -1,18 +1,26 @@
-export const initialState = {
+import Character from '../components/Contents/Character'
+
+type reduxState = {
+  characters: dndCharacter[]
+  language: string
+}
+
+export type dndCharacter = {
+  id: string
+  name: string
+  character: Character
+}
+
+export const initialState: reduxState = {
   characters: [],
   language: 'KOR', // KOR ENG
 }
 
-const languages = {
-  KOR: { name: 'name_KOR', group: 'group_KOR' },
-  ENG: { name: 'name', group: 'group' },
-}
+export const UPDATE_CHARACTERS = 'UPDATE_CHARACTERS' as const
+export const ADD_CHARACTER = 'ADD_CHARACTER' as const
+export const DELETE_CHARACTER = 'DELETE_CHARACTER' as const
 
-export const UPDATE_CHARACTERS = 'UPDATE_CHARACTERS'
-export const ADD_CHARACTER = 'ADD_CHARACTER'
-export const DELETE_CHARACTER = 'DELETE_CHARACTER'
-
-export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE' as const
 
 export default (state = initialState, action) => {
   switch (action.type) {

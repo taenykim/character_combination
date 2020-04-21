@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/wrapper'
 import { RootState } from '../../../reducers'
+import Character from '../Character'
 
 const languages = {
   KOR: { name: 'name_KOR', group: 'group_KOR' },
@@ -64,8 +65,8 @@ const Container = styled.div`
   }
 `
 
-const CharacterItem = ({ character }) => {
-  const language = useSelector((state: RootState) => state.wrapper.language)
+const CharacterItem = ({ character }: { character: Character }) => {
+  const language: string = useSelector((state: RootState) => state.wrapper.language)
   const [clickedToggle, setClickedToggle] = useState<boolean>(character.selected)
   const dispatch = useDispatch()
 
