@@ -3,9 +3,16 @@ export const initialState = {
   language: 'KOR', // KOR ENG
 }
 
+const languages = {
+  KOR: { name: 'name_KOR', group: 'group_KOR' },
+  ENG: { name: 'name', group: 'group' },
+}
+
 export const UPDATE_CHARACTERS = 'UPDATE_CHARACTERS'
 export const ADD_CHARACTER = 'ADD_CHARACTER'
 export const DELETE_CHARACTER = 'DELETE_CHARACTER'
+
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -20,7 +27,11 @@ export default (state = initialState, action) => {
         ...state,
         characters: [
           ...state.characters,
-          { id: `item-${state.characters.length}`, name: action.name, group: action.group },
+          {
+            id: `item-${state.characters.length}`,
+            name: action.character.name,
+            character: action.character,
+          },
         ],
       }
     }
@@ -36,7 +47,6 @@ export default (state = initialState, action) => {
       }
       for (let i = 0; i < tempCharacters.length; i++) {
         if (Number(tempCharacters[i].id.split('-')[1]) > id) {
-          console.log('this')
           tempCharacters[i].id = `item-${Number(tempCharacters[i].id.split('-')[1]) - 1}`
         }
       }
@@ -44,6 +54,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         characters: tempCharacters,
+      }
+    }
+    case CHANGE_LANGUAGE: {
+      return {
+        ...state,
+        language: action.language,
       }
     }
     default: {

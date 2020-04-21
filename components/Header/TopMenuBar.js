@@ -1,7 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
+import { CHANGE_LANGUAGE } from '../../reducers/wrapper'
 
-const contents = ['Character']
+const languages = {
+  KOR: { contents: ['캐릭터'] },
+  ENG: { contents: ['characters'] },
+}
+const languageList = ['KOR', 'ENG']
 
 const Container = styled.div`
   display: flex;
@@ -24,17 +30,38 @@ const Contents = styled.div`
   }
 `
 
+const LanguageElement = styled.span`
+  border: 1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  margin-right: 10px;
+`
+
 const TopMenuBar = () => {
+  const language = useSelector((state) => state.wrapper.language)
+  const dispatch = useDispatch()
+
+  const onClickLanguageButton = (language) => {
+    dispatch({
+      type: CHANGE_LANGUAGE,
+      language: language,
+    })
+  }
   return (
     <Container>
       <Contents>
         <div>
-          {contents.map((item, i) => {
+          {languages[language].contents.map((item, i) => {
             return <span key={i}>{item}</span>
           })}
         </div>
         <div>
-          <span>번역</span>
+          {languageList.map((item) => {
+            return (
+              <LanguageElement onClick={() => onClickLanguageButton(item)}>{item}</LanguageElement>
+            )
+          })}
         </div>
       </Contents>
     </Container>

@@ -1,5 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+
+const languages = {
+  KOR: { description: '푸터 설명' },
+  ENG: { description: 'Footer description' },
+}
 
 const Container = styled.div`
   display: flex;
@@ -19,10 +25,11 @@ const Contents = styled.div`
 `
 
 const Footer = () => {
+  const language = useSelector((state) => state.wrapper.language)
   return (
     <Container>
       <Contents>
-        <p>Description about application...</p>
+        <p>{languages[language].description}</p>
       </Contents>
     </Container>
   )

@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/wrapper'
+
+const languages = {
+  KOR: { name: 'name_KOR', group: 'group_KOR' },
+  ENG: { name: 'name', group: 'group' },
+}
 
 const Container = styled.div`
   position: relative;
@@ -40,7 +45,8 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 10px;
+    font-size: 9px;
+    font-family: escore5;
   }
 
   & > p {
@@ -49,12 +55,13 @@ const Container = styled.div`
     width: 100%;
     bottom: 0;
     text-align: center;
-    font-size: 11px;
-    font-family: escore4;
+    font-size: 10px;
+    font-family: escore6;
   }
 `
 
 const CharacterItem = ({ character }) => {
+  const language = useSelector((state) => state.wrapper.language)
   const [clickedToggle, setClickedToggle] = useState(character.selected)
   const dispatch = useDispatch()
 
@@ -67,15 +74,14 @@ const CharacterItem = ({ character }) => {
         })
       : dispatch({
           type: ADD_CHARACTER,
-          name: character.name,
-          group: character.group,
+          character: character,
         })
   }
   return (
     <Container clickedToggle={clickedToggle} group={character.group} onClick={clickCharacter}>
       <div>🔍</div>
-      <h1>{character.group}</h1>
-      <p>{character.name}</p>
+      <h1>{character[languages[language].group]}</h1>
+      <p>{character[languages[language].name]}</p>
     </Container>
   )
 }

@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
 const contents = ['combination']
+const languages = {
+  KOR: { contents: ['캐릭터조합', '캐릭터사전'] },
+  ENG: { contents: ['Combination', 'Docs'] },
+}
 
 const Container = styled.div`
   display: flex;
@@ -24,11 +29,12 @@ const Contents = styled.div`
 `
 
 const MiddleMenuBar = () => {
+  const language = useSelector((state) => state.wrapper.language)
   return (
     <Container>
       <Contents>
         <div>
-          {contents.map((item, i) => {
+          {languages[language].contents.map((item, i) => {
             return <span key={i}>{item}</span>
           })}
         </div>

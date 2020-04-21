@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import CharacterItem from './CharacterItem'
+import { useSelector } from 'react-redux'
+
+const languages = {
+  KOR: { controlBox: '컨트롤 박스' },
+  ENG: { controlBox: 'Control Box' },
+}
 
 const Container = styled.div`
   display: flex;
@@ -17,9 +23,10 @@ const ControlContainer = styled.div`
 `
 
 const ChracterTable = ({ characters }) => {
+  const language = useSelector((state) => state.wrapper.language)
   return (
     <>
-      <ControlContainer>컨트롤 박스</ControlContainer>
+      <ControlContainer>{languages[language].controlBox}</ControlContainer>
       <Container>
         {characters.map((character, i) => {
           return <CharacterItem key={i} character={character}></CharacterItem>

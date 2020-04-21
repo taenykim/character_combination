@@ -4,6 +4,9 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useSelector, useDispatch } from 'react-redux'
 import { UPDATE_CHARACTERS, ADD_CHARACTER } from '../../../reducers/wrapper'
 import CharacterItem from './CharacterItem'
+import Character from '../Character'
+
+const languages = { KOR: { synergyBox: '시너지 박스' }, ENG: { synergyBox: 'Synergy Box' } }
 
 const Container = styled.div`
   display: flex;
@@ -18,31 +21,27 @@ const SynergyBox = styled.div`
 `
 
 const DndBox = () => {
+  const language = useSelector((state) => state.wrapper.language)
   useEffect(() => {
     dispatch({
       type: ADD_CHARACTER,
-      name: 'Captain',
-      group: 'Avengers',
+      character: new Character('Avengers', 'Captain', true, '어벤져스', '캡틴 아메리카'),
     })
     dispatch({
       type: ADD_CHARACTER,
-      name: 'Iron Man',
-      group: 'Avengers',
+      character: new Character('Avengers', 'Iron Man', true, '어벤져스', '아이언맨'),
     })
     dispatch({
       type: ADD_CHARACTER,
-      name: 'Spider Man',
-      group: 'Avengers',
+      character: new Character('Avengers', 'Spider Man', true, '어벤져스', '스파이더맨'),
     })
     dispatch({
       type: ADD_CHARACTER,
-      name: 'Hulk',
-      group: 'Avengers',
+      character: new Character('Avengers', 'Hulk', true, '어벤져스', '헐크'),
     })
     dispatch({
       type: ADD_CHARACTER,
-      name: 'Thor',
-      group: 'Avengers',
+      character: new Character('Avengers', 'Thor', true, '어벤져스', '토르'),
     })
   }, [])
   const dispatch = useDispatch()
@@ -120,7 +119,7 @@ const DndBox = () => {
           )}
         </Droppable>
       </DragDropContext>
-      <SynergyBox>시너지박스</SynergyBox>
+      <SynergyBox>{languages[language].synergyBox}</SynergyBox>
     </Container>
   )
 }
