@@ -1,5 +1,5 @@
 import React from 'react'
-import { GlobalStyle } from '../reset.css.js'
+import { GlobalStyle } from '../reset.css'
 import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import { applyMiddleware, compose, createStore } from 'redux'
