@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import DndBox from './Contents/DndBox/DndBox'
-import Canvas from './Contents/Canvas'
-import CharacterTable from './Contents/CharacterTable/CharacterTable'
-import Character from './Contents/Character'
+import DndBox from './DndBox/DndBox'
+import Canvas from './Canvas/Canvas'
+import CharacterTable from './CharacterTable/CharacterTable'
+import Character from './Character'
 import { useSelector } from 'react-redux'
-import { RootState } from '../reducers'
+import { RootState } from '../../reducers'
 
 const languages = {
   KOR: { arrangement: '배치', generatedImage: '생성된 이미지', characters: '캐릭터들' },

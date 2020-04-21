@@ -1,7 +1,7 @@
 import React from 'react'
-import TopMenuBar from './Header/TopMenuBar'
-import TitleBanner from './Header/TitleBanner'
-import MiddleMenuBar from './Header/MiddleMenuBar'
+import TopMenuBar from './TopMenuBar'
+import TitleBanner from './TitleBanner'
+import MiddleMenuBar from './MiddleMenuBar'
 
 const Header = () => {
   return (

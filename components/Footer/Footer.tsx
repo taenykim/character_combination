@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { RootState } from '../reducers'
+import { RootState } from '../../reducers'
 
 const languages = {
   KOR: { description: '푸터 설명' },
