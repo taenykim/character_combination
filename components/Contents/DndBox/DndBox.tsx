@@ -9,12 +9,27 @@ import { RootState } from '../../../reducers'
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   margin: 0 0 20px 0;
 `
 
+const LeaderText = styled.div`
+  position: absolute;
+  width: 40px;
+  text-align: center;
+  padding: 2px 0px 2px 0px;
+  left: 20px;
+  top: -20px;
+  color: black;
+  background: yellow;
+  font-family: escore6;
+  font-size: 8px;
+  border: 1px solid red;
+  border-radius: 2px;
+`
+
 const DndBox = () => {
-  const language: string = useSelector((state: RootState) => state.wrapper.language)
   useEffect(() => {
     dispatch({
       type: ADD_CHARACTER,
@@ -85,6 +100,7 @@ const DndBox = () => {
 
   return (
     <Container>
+      <LeaderText>리더</LeaderText>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable" direction="horizontal">
           {(provided, snapshot) => (
