@@ -7,6 +7,7 @@ import Character from './Character'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
 import SynergyBox from './SynergyBox/SynergyBox'
+import ControlBox from './ControlBox/ControlBox'
 
 const languages = {
   KOR: { arrangement: '배치', generatedImage: '생성된 이미지', characters: '캐릭터들' },
@@ -67,6 +68,7 @@ const Contents = () => {
       <p>{languages[language].generatedImage}</p>
       <Canvas />
       <p>{languages[language].characters}</p>
+      <ControlBox />
       <CharacterTable characters={characters} />
     </Container>
   )
