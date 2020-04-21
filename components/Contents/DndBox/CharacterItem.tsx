@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../reducers'
-import { dndCharacter } from '../../../reducers/wrapper'
+import { dndCharacter } from '../../../reducers/charactersReducer'
 
 const languages = {
   KOR: { name: 'name_KOR', group: 'group_KOR' },
@@ -64,7 +64,7 @@ const Container = styled.div`
 `
 
 const CharacterItem = ({ character }: { character: dndCharacter }) => {
-  const language = useSelector((state: RootState) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.languageReducer.language)
   return (
     <Container group={character.character.group}>
       <div>🔍</div>

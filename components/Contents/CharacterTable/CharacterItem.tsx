@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/wrapper'
+import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/charactersReducer'
 import { RootState } from '../../../reducers'
 import Character from '../Character'
 
@@ -66,7 +66,7 @@ const Container = styled.div`
 `
 
 const CharacterItem = ({ character }: { character: Character }) => {
-  const language: string = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.languageReducer.language)
   const [clickedToggle, setClickedToggle] = useState<boolean>(character.selected)
   const dispatch = useDispatch()
 

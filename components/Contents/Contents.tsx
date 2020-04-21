@@ -59,7 +59,7 @@ const Container = styled.div`
 `
 
 const Contents = () => {
-  const language: string = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.languageReducer.language)
   return (
     <Container>
       <p>{languages[language].arrangement}</p>

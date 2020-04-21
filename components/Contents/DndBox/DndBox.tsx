@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useSelector, useDispatch } from 'react-redux'
-import { UPDATE_CHARACTERS, ADD_CHARACTER } from '../../../reducers/wrapper'
+import { UPDATE_CHARACTERS, ADD_CHARACTER } from '../../../reducers/charactersReducer'
 import CharacterItem from './CharacterItem'
 import Character from '../Character'
 import { RootState } from '../../../reducers'
@@ -85,7 +85,7 @@ const DndBox = () => {
     })
   }, [])
   const dispatch = useDispatch()
-  const items = useSelector((state: RootState) => state.wrapper.characters)
+  const items = useSelector((state: RootState) => state.charactersReducer.characters)
   const onDragEnd = (result) => {
     console.log(result)
     // dropped outside the list

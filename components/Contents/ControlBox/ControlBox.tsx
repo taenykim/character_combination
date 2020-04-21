@@ -21,7 +21,7 @@ const Controller = styled.div``
 const Title = styled.div``
 
 const ControlBox = () => {
-  const language: string = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.languageReducer.language)
 
   return (
     <Container>

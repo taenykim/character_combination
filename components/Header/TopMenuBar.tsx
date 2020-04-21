@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
-import { CHANGE_LANGUAGE } from '../../reducers/wrapper'
+import { CHANGE_LANGUAGE } from '../../reducers/languageReducer'
 import { RootState } from '../../reducers'
 
 const languages = {
@@ -40,7 +40,7 @@ const LanguageElement = styled.span`
 `
 
 const TopMenuBar = () => {
-  const language: string = useSelector((state: RootState) => state.wrapper.language)
+  const language: string = useSelector((state: RootState) => state.languageReducer.language)
   const dispatch = useDispatch()
 
   const onClickLanguageButton = (language) => {

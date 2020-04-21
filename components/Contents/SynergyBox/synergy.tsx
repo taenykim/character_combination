@@ -1,4 +1,4 @@
-import { dndCharacter } from '../../../reducers/wrapper'
+import { dndCharacter } from '../../../reducers/charactersReducer'
 
 const getSynergys = (characters: dndCharacter[], language: string) => {
   const synergys = {}

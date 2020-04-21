@@ -2,7 +2,6 @@ import Character from '../components/Contents/Character'
 
 type reduxState = {
   characters: dndCharacter[]
-  language: string
 }
 
 export type dndCharacter = {
@@ -13,14 +12,11 @@ export type dndCharacter = {
 
 export const initialState: reduxState = {
   characters: [],
-  language: 'KOR', // KOR ENG
 }
 
 export const UPDATE_CHARACTERS = 'UPDATE_CHARACTERS' as const
 export const ADD_CHARACTER = 'ADD_CHARACTER' as const
 export const DELETE_CHARACTER = 'DELETE_CHARACTER' as const
-
-export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE' as const
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -62,12 +58,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         characters: tempCharacters,
-      }
-    }
-    case CHANGE_LANGUAGE: {
-      return {
-        ...state,
-        language: action.language,
       }
     }
     default: {

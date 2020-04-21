@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-import wrapper from './wrapper'
+import charactersReducer from './charactersReducer'
+import languageReducer from './languageReducer'
 
-const rootReducer = combineReducers({ wrapper })
+const rootReducer = combineReducers({ charactersReducer, languageReducer })
 
 export default rootReducer
 
