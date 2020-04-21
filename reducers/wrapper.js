@@ -1,5 +1,6 @@
 export const initialState = {
   characters: [],
+  language: 'KOR', // KOR ENG
 }
 
 export const UPDATE_CHARACTERS = 'UPDATE_CHARACTERS'
@@ -10,12 +11,13 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_CHARACTERS: {
       return {
+        ...state,
         characters: [...action.characters],
       }
     }
     case ADD_CHARACTER: {
-      console.log(action)
       return {
+        ...state,
         characters: [
           ...state.characters,
           { id: `item-${state.characters.length}`, name: action.name, group: action.group },
@@ -40,6 +42,7 @@ export default (state = initialState, action) => {
       }
       tempCharacters.splice(index, 1)
       return {
+        ...state,
         characters: tempCharacters,
       }
     }

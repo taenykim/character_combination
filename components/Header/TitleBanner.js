@@ -1,5 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
+
+const languages = {
+  KOR: { title: '캐릭터 조합', description: '이 어플리케이션에 대한 설명' },
+  ENG: { title: 'Character Combination', description: 'Description about application...' },
+}
 
 const Container = styled.div`
   display: flex;
@@ -25,13 +31,14 @@ const Contents = styled.div`
     color: white;
   }
 `
-
 const TitleBanner = () => {
+  const language = useSelector((state) => state.wrapper.language)
+
   return (
     <Container>
       <Contents>
-        <h1>Character Combination</h1>
-        <p>Description about application...</p>
+        <h1>{languages[language].title}</h1>
+        <p>{languages[language].description}</p>
       </Contents>
     </Container>
   )
