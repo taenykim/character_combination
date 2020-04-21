@@ -100,7 +100,7 @@ const DndBox = () => {
 
   return (
     <Container>
-      <LeaderText>리더</LeaderText>
+      {items && items.length ? <LeaderText>리더</LeaderText> : <div></div>}
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable" direction="horizontal">
           {(provided, snapshot) => (
