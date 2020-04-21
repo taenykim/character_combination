@@ -68,8 +68,8 @@ const CharacterItem = ({ character }: { character: dndCharacter }) => {
   return (
     <Container group={character.character.group}>
       <div>🔍</div>
-      <h1>{character.character[languages[language].name]}</h1>
-      <p>{character.character[languages[language].group]}</p>
+      <h1>{character.character[languages[language].group]}</h1>
+      <p>{character.character[languages[language].name]}</p>
     </Container>
   )
 }
