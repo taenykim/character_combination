@@ -33,23 +33,23 @@ const DndBox = () => {
   useEffect(() => {
     dispatch({
       type: ADD_CHARACTER,
-      character: new Character('Avengers', 'Captain', true, '어벤져스', '캡틴 아메리카'),
+      character: new Character('Avengers', 'Captain', true, '어벤져스', '캡틴 아메리카', ['리더']),
     })
     dispatch({
       type: ADD_CHARACTER,
-      character: new Character('Avengers', 'Iron Man', true, '어벤져스', '아이언맨'),
+      character: new Character('Avengers', 'Iron Man', true, '어벤져스', '아이언맨', ['과학자']),
     })
     dispatch({
       type: ADD_CHARACTER,
-      character: new Character('Avengers', 'Spider Man', true, '어벤져스', '스파이더맨'),
+      character: new Character('Avengers', 'Spider Man', true, '어벤져스', '스파이더맨', ['동물']),
     })
     dispatch({
       type: ADD_CHARACTER,
-      character: new Character('Avengers', 'Hulk', true, '어벤져스', '헐크'),
+      character: new Character('Avengers', 'Hulk', true, '어벤져스', '헐크', ['힘']),
     })
     dispatch({
       type: ADD_CHARACTER,
-      character: new Character('Avengers', 'Thor', true, '어벤져스', '토르'),
+      character: new Character('Avengers', 'Thor', true, '어벤져스', '토르', ['번개']),
     })
   }, [])
   const dispatch = useDispatch()

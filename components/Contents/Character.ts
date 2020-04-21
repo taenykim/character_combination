@@ -5,11 +5,20 @@ export default class Character {
   name_KOR = ''
   selected = false
   image = ''
-  constructor(group, name, selected, group_KOR, name_KOR) {
+  synergy: string[] = []
+  constructor(
+    group: string,
+    name: string,
+    selected: boolean,
+    group_KOR: string,
+    name_KOR: string,
+    synergy: string[]
+  ) {
     this.group = group
     this.name = name
     this.selected = selected
     this.group_KOR = group_KOR
     this.name_KOR = name_KOR
+    this.synergy = synergy
   }
 }
