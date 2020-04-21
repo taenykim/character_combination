@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { UPDATE_CHARACTERS, ADD_CHARACTER } from '../../../reducers/wrapper'
 import CharacterItem from './CharacterItem'
 import Character from '../Character'
+import { RootState } from '../../../reducers'
 
 const languages = { KOR: { synergyBox: '시너지 박스' }, ENG: { synergyBox: 'Synergy Box' } }
 
@@ -21,7 +22,7 @@ const SynergyBox = styled.div`
 `
 
 const DndBox = () => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
   useEffect(() => {
     dispatch({
       type: ADD_CHARACTER,
@@ -45,7 +46,7 @@ const DndBox = () => {
     })
   }, [])
   const dispatch = useDispatch()
-  const items = useSelector((state) => state.wrapper.characters)
+  const items = useSelector((state: RootState) => state.wrapper.characters)
   const onDragEnd = (result) => {
     console.log(result)
     // dropped outside the list

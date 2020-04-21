@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
+import { RootState } from '../../reducers'
 
-const contents = ['combination']
 const languages = {
-  KOR: { contents: ['캐릭터조합', '캐릭터사전'] },
-  ENG: { contents: ['Combination', 'Docs'] },
+  KOR: { contents: ['캐릭터조합', '캐릭터사전'], search: '검색하기' },
+  ENG: { contents: ['Combination', 'Docs'], search: 'search' },
 }
 
 const Container = styled.div`
@@ -29,7 +29,7 @@ const Contents = styled.div`
 `
 
 const MiddleMenuBar = () => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
   return (
     <Container>
       <Contents>
@@ -40,7 +40,7 @@ const MiddleMenuBar = () => {
         </div>
         <div>
           <span>
-            <input style={{ marginRight: '4px' }} placeholder="검색하기"></input>
+            <input style={{ marginRight: '4px' }} placeholder={languages[language].search}></input>
             <button>🔍</button>
           </span>
         </div>

@@ -5,6 +5,7 @@ import Canvas from './Contents/Canvas'
 import CharacterTable from './Contents/CharacterTable/CharacterTable'
 import Character from './Contents/Character'
 import { useSelector } from 'react-redux'
+import { RootState } from '../reducers'
 
 const languages = {
   KOR: { arrangement: '배치', generatedImage: '생성된 이미지', characters: '캐릭터들' },
@@ -48,7 +49,7 @@ const Container = styled.div`
 `
 
 const Contents = () => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
   return (
     <Container>
       <p>{languages[language].arrangement}</p>

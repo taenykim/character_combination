@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import CharacterItem from './CharacterItem'
 import { useSelector } from 'react-redux'
+import { RootState } from '../../../reducers'
 
 const languages = {
   KOR: { controlBox: '컨트롤 박스' },
@@ -23,7 +24,7 @@ const ControlContainer = styled.div`
 `
 
 const ChracterTable = ({ characters }) => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
   return (
     <>
       <ControlContainer>{languages[language].controlBox}</ControlContainer>

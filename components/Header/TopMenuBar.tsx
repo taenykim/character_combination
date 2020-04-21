@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { CHANGE_LANGUAGE } from '../../reducers/wrapper'
+import { RootState } from '../../reducers'
 
 const languages = {
   KOR: { contents: ['캐릭터'] },
@@ -39,7 +40,7 @@ const LanguageElement = styled.span`
 `
 
 const TopMenuBar = () => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
   const dispatch = useDispatch()
 
   const onClickLanguageButton = (language) => {

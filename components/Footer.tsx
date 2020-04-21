@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
+import { RootState } from '../reducers'
 
 const languages = {
   KOR: { description: '푸터 설명' },
@@ -25,7 +26,7 @@ const Contents = styled.div`
 `
 
 const Footer = () => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
   return (
     <Container>
       <Contents>

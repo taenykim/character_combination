@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/wrapper'
+import { RootState } from '../../../reducers'
 
 const languages = {
   KOR: { name: 'name_KOR', group: 'group_KOR' },
@@ -13,15 +14,16 @@ const Container = styled.div`
   width: 80px;
   height: 80px;
   border: 5px solid
-    ${(props) => {
+    ${(props: { group: string; toggle: boolean }) => {
       if (props.group === 'Avengers') return 'red'
       if (props.group === 'Gardians') return 'dodgerblue'
       if (props.group === 'Dr.strange') return 'orange'
       if (props.group === 'Wakanda') return 'black'
+      return 'black'
     }};
   box-sizing: border-box;
-  background: ${(props) => {
-    return props.clickedToggle === true ? 'lightgreen' : 'yellow'
+  background: ${(props: { group: string; toggle: boolean }) => {
+    return props.toggle === true ? 'lightgreen' : 'yellow'
   }};
 
   & > div {
@@ -32,14 +34,16 @@ const Container = styled.div`
   }
 
   & > h1 {
-    color: ${(props) => {
+    color: ${(props: { group: string; toggle: boolean }) => {
       if (props.group === 'Wakanda') return 'white'
+      return 'black'
     }};
-    background: ${(props) => {
+    background: ${(props: { group: string; toggle: boolean }) => {
       if (props.group === 'Avengers') return 'red'
       if (props.group === 'Gardians') return 'dodgerblue'
       if (props.group === 'Dr.strange') return 'orange'
       if (props.group === 'Wakanda') return 'black'
+      return 'black'
     }};
     padding: 0px 2px 2px 0px;
     position: absolute;
@@ -61,8 +65,8 @@ const Container = styled.div`
 `
 
 const CharacterItem = ({ character }) => {
-  const language = useSelector((state) => state.wrapper.language)
-  const [clickedToggle, setClickedToggle] = useState(character.selected)
+  const language = useSelector((state: RootState) => state.wrapper.language)
+  const [clickedToggle, setClickedToggle] = useState<boolean>(character.selected)
   const dispatch = useDispatch()
 
   const clickCharacter = () => {
@@ -78,7 +82,7 @@ const CharacterItem = ({ character }) => {
         })
   }
   return (
-    <Container clickedToggle={clickedToggle} group={character.group} onClick={clickCharacter}>
+    <Container toggle={clickedToggle} group={character.group} onClick={clickCharacter}>
       <div>🔍</div>
       <h1>{character[languages[language].group]}</h1>
       <p>{character[languages[language].name]}</p>

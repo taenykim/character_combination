@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
+import { RootState } from '../../reducers'
 
 const languages = {
   KOR: { title: '캐릭터 조합', description: '이 어플리케이션에 대한 설명' },
@@ -32,7 +33,7 @@ const Contents = styled.div`
   }
 `
 const TitleBanner = () => {
-  const language = useSelector((state) => state.wrapper.language)
+  const language = useSelector((state: RootState) => state.wrapper.language)
 
   return (
     <Container>
