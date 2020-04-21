@@ -1,11 +1,17 @@
-import styled from 'styled-components'
 import { dndCharacter } from '../../../reducers/wrapper'
 
-const getSynergys = (characters: dndCharacter[]) => {
+const getSynergys = (characters: dndCharacter[], language: string) => {
   const synergys = {}
   characters.forEach((_character) => {
     const { character } = _character
-    character.synergy.forEach((synergy: string) => {
+    let _synergeys: string[]
+    if (language === 'KOR') {
+      _synergeys = character.synergys_KOR
+    }
+    if (language === 'ENG') {
+      _synergeys = character.synergys
+    }
+    _synergeys.forEach((synergy: string) => {
       if (synergys[synergy]) {
         synergys[synergy] += 1
       } else {
@@ -16,9 +22,9 @@ const getSynergys = (characters: dndCharacter[]) => {
   return synergys
 }
 
-const getSynergyElement = (characters: dndCharacter[]) => {
+const getSynergyElement = (characters: dndCharacter[], language: string) => {
   const elements: JSX.Element[] = []
-  for (let [key, value] of Object.entries(getSynergys(characters))) {
+  for (let [key, value] of Object.entries(getSynergys(characters, language))) {
     elements.push(
       <span
         style={{

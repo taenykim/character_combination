@@ -30,8 +30,8 @@ const SynergyBox = () => {
   const characters = useSelector((state: RootState) => state.wrapper.characters)
   const language: string = useSelector((state: RootState) => state.wrapper.language)
   useEffect(() => {
-    setSynergyElements(getSynergyElement(characters))
-  }, [characters])
+    setSynergyElements(getSynergyElement(characters, language))
+  }, [characters, language])
   return (
     <Container>
       <Title>{languages[language].synergyBox}</Title>
