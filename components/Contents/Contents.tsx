@@ -6,6 +6,7 @@ import CharacterTable from './CharacterTable/CharacterTable'
 import Character from './Character'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
+import SynergyBox from './SynergyBox/SynergyBox'
 
 const languages = {
   KOR: { arrangement: '배치', generatedImage: '생성된 이미지', characters: '캐릭터들' },
@@ -53,11 +54,12 @@ const Contents = () => {
   return (
     <Container>
       <p>{languages[language].arrangement}</p>
-      <DndBox></DndBox>
+      <DndBox />
+      <SynergyBox />
       <p>{languages[language].generatedImage}</p>
-      <Canvas></Canvas>
+      <Canvas />
       <p>{languages[language].characters}</p>
-      <CharacterTable characters={characters}></CharacterTable>
+      <CharacterTable characters={characters} />
     </Container>
   )
 }

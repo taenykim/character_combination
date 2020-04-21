@@ -7,18 +7,10 @@ import CharacterItem from './CharacterItem'
 import Character from '../Character'
 import { RootState } from '../../../reducers'
 
-const languages = { KOR: { synergyBox: '시너지 박스' }, ENG: { synergyBox: 'Synergy Box' } }
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 0 20px 0;
-`
-
-const SynergyBox = styled.div`
-  color: white;
-  width: 800px;
-  margin: 20px 0px 20px 0px;
 `
 
 const DndBox = () => {
@@ -120,7 +112,6 @@ const DndBox = () => {
           )}
         </Droppable>
       </DragDropContext>
-      <SynergyBox>{languages[language].synergyBox}</SynergyBox>
     </Container>
   )
 }
