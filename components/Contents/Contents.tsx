@@ -30,10 +30,10 @@ const characters = [
     false,
     '닥터스트레인지',
     '닥터스트레인지',
-    ['마법'],
-    ['magic']
+    ['magic'],
+    ['마법']
   ),
-  new Character('Wakanda', 'Black Panther', false, '와칸다', '블랙 펜서', ['리더'], ['leader']),
+  new Character('Wakanda', 'Black Panther', false, '와칸다', '블랙 펜서', ['leader'], ['리더']),
   new Character('Wakanda', 'Shuri', false, '와칸다', '슈리', [], []),
   new Character('Wakanda', 'Killmonger', false, '와칸다', '킬몽거', [], []),
 ]
