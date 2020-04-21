@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import CharacterItem from './CharacterItem'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../../reducers'
 import Character from '../Character'
 
 const Container = styled.div`

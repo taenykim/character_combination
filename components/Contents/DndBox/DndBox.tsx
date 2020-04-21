@@ -7,6 +7,11 @@ import CharacterItem from './CharacterItem'
 import Character from '../Character'
 import { RootState } from '../../../reducers'
 
+const languages = {
+  KOR: { leader: '리더' },
+  ENG: { leader: 'leader' },
+}
+
 const Container = styled.div`
   display: flex;
   position: relative;
@@ -30,6 +35,8 @@ const LeaderText = styled.div`
 `
 
 const DndBox = () => {
+  const language: string = useSelector((state: RootState) => state.languageReducer.language)
+
   useEffect(() => {
     dispatch({
       type: ADD_CHARACTER,
@@ -132,7 +139,7 @@ const DndBox = () => {
 
   return (
     <Container>
-      {items && items.length ? <LeaderText>리더</LeaderText> : <div></div>}
+      {items && items.length ? <LeaderText>{languages[language].leader}</LeaderText> : <div></div>}
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable" direction="horizontal">
           {(provided, snapshot) => (
