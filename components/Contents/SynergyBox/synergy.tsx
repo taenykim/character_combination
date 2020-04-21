@@ -24,9 +24,11 @@ const getSynergys = (characters: dndCharacter[], language: string) => {
 
 const getSynergyElement = (characters: dndCharacter[], language: string) => {
   const elements: JSX.Element[] = []
+  let i = 0
   for (let [key, value] of Object.entries(getSynergys(characters, language))) {
     elements.push(
       <span
+        key={i}
         style={{
           marginLeft: '10px',
           fontSize: '12px',
@@ -38,6 +40,7 @@ const getSynergyElement = (characters: dndCharacter[], language: string) => {
         {key}: {value}
       </span>
     )
+    i++
   }
   return elements
 }

@@ -58,9 +58,11 @@ const TopMenuBar = () => {
           })}
         </div>
         <div>
-          {languageList.map((item) => {
+          {languageList.map((item, i) => {
             return (
-              <LanguageElement onClick={() => onClickLanguageButton(item)}>{item}</LanguageElement>
+              <LanguageElement key={i} onClick={() => onClickLanguageButton(item)}>
+                {item}
+              </LanguageElement>
             )
           })}
         </div>
