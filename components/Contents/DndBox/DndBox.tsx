@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable, Droppable, resetServerContext } from 'react-beautiful-dnd'
 import { useSelector, useDispatch } from 'react-redux'
 import { UPDATE_CHARACTERS, ADD_CHARACTER } from '../../../reducers/charactersReducer'
 import CharacterItem from './CharacterItem'
@@ -35,6 +35,7 @@ const LeaderText = styled.div`
 `
 
 const DndBox = () => {
+  resetServerContext()
   const language: string = useSelector((state: RootState) => state.languageReducer.language)
 
   useEffect(() => {
