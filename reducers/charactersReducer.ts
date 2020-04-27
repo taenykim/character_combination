@@ -4,6 +4,8 @@ type reduxState = {
   characters: Character[]
 }
 
+export const UPDATE_CHARACTERS_TABLE = 'UPDATE_CHARACTERS_TABLE' as const
+
 export const initialState: reduxState = {
   characters: [
     new Character(
@@ -79,6 +81,12 @@ export const initialState: reduxState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_CHARACTERS_TABLE: {
+      return {
+        ...state,
+        characters: [...action.characters],
+      }
+    }
     default: {
       return {
         ...state,

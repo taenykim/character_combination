@@ -1,8 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../../reducers'
 import Character from '../Character'
+import {
+  nameAscendingButtonHandler,
+  nameDescendingButtonHandler,
+  groupAscendingButtonHandler,
+  groupDescendingButtonHandler,
+  newestButtonHandler,
+  oldestButtonHandler,
+} from './controlModule'
+import { UPDATE_CHARACTERS_TABLE } from '../../../reducers/charactersReducer'
 
 const languages = {
   KOR: {
@@ -54,6 +63,7 @@ const ControlBox = () => {
   const characters: Character[] = useSelector(
     (state: RootState) => state.charactersReducer.characters
   )
+  const dispatch = useDispatch()
 
   const clickControlButton = (buttonType: string) => {
     if (buttonType === 'newest') {
@@ -61,12 +71,46 @@ const ControlBox = () => {
     if (buttonType === 'oldest') {
     }
     if (buttonType === 'nameAscending') {
+      const updatedCharacters = nameAscendingButtonHandler(characters, language)
+      dispatch({
+        type: UPDATE_CHARACTERS_TABLE,
+        characters: updatedCharacters,
+      })
     }
     if (buttonType === 'nameDescending') {
+      const updatedCharacters = nameDescendingButtonHandler(characters, language)
+      dispatch({
+        type: UPDATE_CHARACTERS_TABLE,
+        characters: updatedCharacters,
+      })
     }
     if (buttonType === 'groupAscending') {
+      const updatedCharacters = groupAscendingButtonHandler(characters, language)
+      dispatch({
+        type: UPDATE_CHARACTERS_TABLE,
+        characters: updatedCharacters,
+      })
     }
     if (buttonType === 'groupDescending') {
+      const updatedCharacters = groupDescendingButtonHandler(characters, language)
+      dispatch({
+        type: UPDATE_CHARACTERS_TABLE,
+        characters: updatedCharacters,
+      })
+    }
+    if (buttonType === 'newest') {
+      const updatedCharacters = newestButtonHandler(characters)
+      dispatch({
+        type: UPDATE_CHARACTERS_TABLE,
+        characters: updatedCharacters,
+      })
+    }
+    if (buttonType === 'oldest') {
+      const updatedCharacters = oldestButtonHandler(characters)
+      dispatch({
+        type: UPDATE_CHARACTERS_TABLE,
+        characters: updatedCharacters,
+      })
     }
     return
   }
