@@ -55,16 +55,40 @@ const ControlBox = () => {
     (state: RootState) => state.charactersReducer.characters
   )
 
+  const clickControlButton = (buttonType: string) => {
+    if (buttonType === 'newest') {
+    }
+    if (buttonType === 'oldest') {
+    }
+    if (buttonType === 'nameAscending') {
+    }
+    if (buttonType === 'nameDescending') {
+    }
+    if (buttonType === 'groupAscending') {
+    }
+    if (buttonType === 'groupDescending') {
+    }
+    return
+  }
+
   return (
     <Container>
       <Title>{languages[language].controlBox}</Title>
       <Controller>
-        <button>{languages[language].newest}</button>
-        <button>{languages[language].oldest}</button>
-        <button>{languages[language].nameAscending}</button>
-        <button>{languages[language].nameDescending}</button>
-        <button>{languages[language].groupAscending}</button>
-        <button>{languages[language].groupDescending}</button>
+        <button onClick={() => clickControlButton('newest')}>{languages[language].newest}</button>
+        <button onClick={() => clickControlButton('oldest')}>{languages[language].oldest}</button>
+        <button onClick={() => clickControlButton('nameAscending')}>
+          {languages[language].nameAscending}
+        </button>
+        <button onClick={() => clickControlButton('nameDescending')}>
+          {languages[language].nameDescending}
+        </button>
+        <button onClick={() => clickControlButton('groupAscending')}>
+          {languages[language].groupAscending}
+        </button>
+        <button onClick={() => clickControlButton('groupDescending')}>
+          {languages[language].groupDescending}
+        </button>
       </Controller>
     </Container>
   )

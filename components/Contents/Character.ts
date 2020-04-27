@@ -7,6 +7,8 @@ export default class Character {
   image = ''
   synergys: string[] = []
   synergys_KOR: string[] = []
+  year: number = 0
+
   constructor(
     group: string,
     name: string,
@@ -14,7 +16,8 @@ export default class Character {
     group_KOR: string,
     name_KOR: string,
     synergys: string[],
-    synergys_KOR: string[]
+    synergys_KOR: string[],
+    year: number
   ) {
     this.group = group
     this.name = name
@@ -23,5 +26,6 @@ export default class Character {
     this.name_KOR = name_KOR
     this.synergys = synergys
     this.synergys_KOR = synergys_KOR
+    this.year = year
   }
 }

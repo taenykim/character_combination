@@ -48,7 +48,8 @@ const DndBox = () => {
         '어벤져스',
         '캡틴 아메리카',
         ['leader'],
-        ['리더']
+        ['리더'],
+        2012
       ),
     })
     dispatch({
@@ -60,7 +61,8 @@ const DndBox = () => {
         '어벤져스',
         '아이언맨',
         ['scientist'],
-        ['과학자']
+        ['과학자'],
+        2012
       ),
     })
     dispatch({
@@ -72,12 +74,22 @@ const DndBox = () => {
         '어벤져스',
         '스파이더맨',
         ['animal'],
-        ['동물']
+        ['동물'],
+        2012
       ),
     })
     dispatch({
       type: ADD_CHARACTER,
-      character: new Character('Avengers', 'Hulk', true, '어벤져스', '헐크', ['power'], ['힘']),
+      character: new Character(
+        'Avengers',
+        'Hulk',
+        true,
+        '어벤져스',
+        '헐크',
+        ['power'],
+        ['힘'],
+        2012
+      ),
     })
     dispatch({
       type: ADD_CHARACTER,
@@ -88,7 +100,8 @@ const DndBox = () => {
         '어벤져스',
         '토르',
         ['lightening'],
-        ['번개']
+        ['번개'],
+        2012
       ),
     })
   }, [])
