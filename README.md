@@ -14,12 +14,13 @@ character_combination
 │   │   │   ├── CharacterItem.tsx
 │   │   │   ├── CharacterTable.tsx
 │   │   ├── ControlBox
+│   │   │   ├── controlModule.ts
 │   │   │   ├── ControlBox.tsx
 │   │   ├── DndBox
 │   │   │   ├── CharacterItem.tsx
 │   │   │   ├── DndBox.tsx
 │   │   ├── SynergyBox
-│   │   │   ├── Synergy.tsx
+│   │   │   ├── synergyModule.tsx
 │   │   │   ├── SynergyBox.tsx
 │   │   ├── Character.ts
 │   │   ├── Contents.tsx
