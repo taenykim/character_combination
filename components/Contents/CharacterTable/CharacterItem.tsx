@@ -71,8 +71,8 @@ const CharacterItem = ({ character }: { character: Character }) => {
   const dispatch = useDispatch()
 
   const clickCharacter = () => {
-    setClickedToggle(!clickedToggle)
-    clickedToggle
+    character.selected = !character.selected
+    !character.selected
       ? dispatch({
           type: DELETE_CHARACTER,
           name: character.name,
@@ -81,9 +81,10 @@ const CharacterItem = ({ character }: { character: Character }) => {
           type: ADD_CHARACTER,
           character: character,
         })
+    setClickedToggle(!clickedToggle)
   }
   return (
-    <Container toggle={clickedToggle} group={character.group} onClick={clickCharacter}>
+    <Container toggle={character.selected} group={character.group} onClick={clickCharacter}>
       <div>🔍</div>
       <h1>{character[languages[language].group]}</h1>
       <p>{character[languages[language].name]}</p>

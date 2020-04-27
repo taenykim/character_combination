@@ -66,16 +66,13 @@ const ControlBox = () => {
   const dispatch = useDispatch()
 
   const clickControlButton = (buttonType: string) => {
-    if (buttonType === 'newest') {
-    }
-    if (buttonType === 'oldest') {
-    }
     if (buttonType === 'nameAscending') {
       const updatedCharacters = nameAscendingButtonHandler(characters, language)
       dispatch({
         type: UPDATE_CHARACTERS_TABLE,
         characters: updatedCharacters,
       })
+      return
     }
     if (buttonType === 'nameDescending') {
       const updatedCharacters = nameDescendingButtonHandler(characters, language)
@@ -83,6 +80,7 @@ const ControlBox = () => {
         type: UPDATE_CHARACTERS_TABLE,
         characters: updatedCharacters,
       })
+      return
     }
     if (buttonType === 'groupAscending') {
       const updatedCharacters = groupAscendingButtonHandler(characters, language)
@@ -90,6 +88,7 @@ const ControlBox = () => {
         type: UPDATE_CHARACTERS_TABLE,
         characters: updatedCharacters,
       })
+      return
     }
     if (buttonType === 'groupDescending') {
       const updatedCharacters = groupDescendingButtonHandler(characters, language)
@@ -97,6 +96,7 @@ const ControlBox = () => {
         type: UPDATE_CHARACTERS_TABLE,
         characters: updatedCharacters,
       })
+      return
     }
     if (buttonType === 'newest') {
       const updatedCharacters = newestButtonHandler(characters)
@@ -104,6 +104,7 @@ const ControlBox = () => {
         type: UPDATE_CHARACTERS_TABLE,
         characters: updatedCharacters,
       })
+      return
     }
     if (buttonType === 'oldest') {
       const updatedCharacters = oldestButtonHandler(characters)
@@ -111,6 +112,7 @@ const ControlBox = () => {
         type: UPDATE_CHARACTERS_TABLE,
         characters: updatedCharacters,
       })
+      return
     }
     return
   }
