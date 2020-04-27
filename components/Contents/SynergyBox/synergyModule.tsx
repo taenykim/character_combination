@@ -30,6 +30,7 @@ const getSynergyElement = (characters: dndCharacter[], language: string) => {
       <span
         key={i}
         style={{
+          cursor: 'pointer',
           marginLeft: '10px',
           fontSize: '12px',
           border: '1px solid white',

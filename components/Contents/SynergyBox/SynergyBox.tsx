@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../reducers'
-import { getSynergyElement } from './synergy'
+import { getSynergyElement } from './synergyModule'
 
 const languages = { KOR: { synergyBox: '시너지' }, ENG: { synergyBox: 'Synergy' } }
 

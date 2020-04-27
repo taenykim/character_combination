@@ -18,7 +18,6 @@ const ChracterTable = () => {
   const characters: Character[] = useSelector(
     (state: RootState) => state.charactersReducer.characters
   )
-  console.log(characters)
   return (
     <>
       <Container>
