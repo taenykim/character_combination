@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/charactersReducer'
+import { DELETE_CHARACTER, ADD_CHARACTER } from '../../../reducers/dndcharactersReducer'
 import { RootState } from '../../../reducers'
 import Character from '../Character'
 

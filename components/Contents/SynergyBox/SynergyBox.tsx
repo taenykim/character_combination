@@ -27,7 +27,7 @@ const Synergy = styled.span`
 
 const SynergyBox = () => {
   const [synergyElements, setSynergyElements] = useState<JSX.Element[]>([])
-  const characters = useSelector((state: RootState) => state.charactersReducer.characters)
+  const characters = useSelector((state: RootState) => state.dndcharactersReducer.characters)
   const language: string = useSelector((state: RootState) => state.languageReducer.language)
   useEffect(() => {
     setSynergyElements(getSynergyElement(characters, language))

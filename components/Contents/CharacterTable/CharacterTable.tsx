@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import CharacterItem from './CharacterItem'
 import Character from '../Character'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../reducers'
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +14,11 @@ const Container = styled.div`
   margin: 0 0 60px 0;
 `
 
-const ChracterTable = ({ characters }: { characters: Character[] }) => {
+const ChracterTable = () => {
+  const characters: Character[] = useSelector(
+    (state: RootState) => state.charactersReducer.characters
+  )
+  console.log(characters)
   return (
     <>
       <Container>
